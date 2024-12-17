@@ -25,7 +25,7 @@
 """
 # The root of the distribution
 FROGHOME = "/data/lib/Frog2"
-FROGHOME = "/home/tintin/tuffery/wrk/Frog/Frog-dist-2010/"
+FROGHOME = "/home/coder/Frog2/"
 
 # could superseded by e.g. :
 # FROGHOME = "/home/wrk/Frog/Frog/iMoleculeDist/"

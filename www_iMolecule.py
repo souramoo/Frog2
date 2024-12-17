@@ -63,7 +63,7 @@ def checkSDF(fname):
     # print iFile3DSdf
     babel_convert(fname, "sdf", iFile3DSdf, "smi", verbose = 0)
     rs = checkSmiles(iFile3DSdf)
-    os.remove(iFile3DSdf)
+    #os.remove(iFile3DSdf)
     return rs
 
 def checkMol2(fname):
@@ -712,7 +712,11 @@ if __name__ == "__main__":
                         mode = "mono"
                         if multi:
                             mode = "multi"
+                        import time
+                        t0 = time.time()
                         lnbC = iMol.to1confWWW(fileName = o3dFileName, mode = mode, minimize = minimize, autoMinimize = autoMinimize, ammp_energy = ammp_energy, clusterize = clusterize, clus_trhld = clus_trhld, format = o3dFileFormat, nbBestResults = lnbBestResults, energeticBarrer = eMax, eIni = eIni, mcsteps=mcSteps, visuSdfFileName = wrkPathTmp + "/mol-%d.sdf"%(i+1), split = split, refFileName = iRefFileName, vibrate = vibrate, miniEach = miniEach, verbose = verbose)
+                        t1 = time.time()
+                        print("Time for %s: %f" % (id, t1-t0))
                         if doPymol:
                             if mode == "mono":
                                 genPmlScript("mol-%d.sdf"%(i+1))
